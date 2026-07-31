@@ -61,7 +61,7 @@
 </decoder>
 
 
-(\d{1,7})]:\s\[(\w+)]\s(\w+-\w+-\w+):\s(mdns data):\s(.*)
+
 <decoder name="unifi-udm-pro-se-services-fields">
     <parent>unifi-udm-pro-services</parent>
     <regex type="pcre2" offset="after_parent">(\d{1,7})]:\s\[(\w+)]\s(\w+-\w+-\w+):\s(mdns data):\s(.*)</regex>
