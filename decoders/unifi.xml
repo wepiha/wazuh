@@ -738,8 +738,15 @@
   <program_name>^CEF</program_name>
   <prematch type="pcre2">Ubiquiti\|UniFi Network</prematch>
 </decoder>
+<!--
 <decoder name="unifi-network-cef">
   <parent>unifi-network-cef-parent</parent>
   <regex type="pcre2">\|(\d+)\|([^|]+)\|(\d+)\|</regex>
   <order>id, action, status</order>
+</decoder>
+-->
+<decoder name="unifi-network-cef-fields">
+  <parent>unifi-network-cef-parent</parent>
+  <regex type="pcre2" offset="after_parent">\|([^|]+)\|(\d+)\|([^|]+)\|(\d+)\|UNIFIcategory=\S+ UNIFIhost=\S+ (?:proto=(\S+) spt=(\S+) dpt=(\S+) act=(\S+) app=(\S+) )?(?:UNIFIrisk=(\S+) )?(?:UNIFIpolicyName=(.+?) UNIFIpolicyType=\S+ )?(?:UNIFIdirection=(\S+) )?dst=(\S+) UNIFIsrcClientAlias=(\S+) UNIFIsrcClientHostname=(\S+) UNIFIsrcClientIp=(\S+) UNIFIsrcClientMac=(\S+) UNIFIsrcClientModel=(.+?) (?:UNIFIsrcZone=\S+ )?(?:UNIFIsrcRegion=(\S+) )?UNIFIdstRegion=(\S+) UNIFIfirewallPolicy=(.+?) (?:UNIFIpacketsReceived=\S+ UNIFIbytesReceived=\S+ UNIFIflowCount=\S+ UNIFIflowId=\S+ )?UNIFIutcTime=\S+ msg=(.+)</regex>
+  <order>unifi_fw_version, id, action, status, protocol, srcport, dstport, unifi_action_result, unifi_app, unifi_risk, unifi_policy_name, unifi_direction, dstip, unifi_src_alias, unifi_src_hostname, srcip, srcmac, unifi_src_model, unifi_src_region, unifi_dst_region, unifi_firewall_policy, unifi_msg</order>
 </decoder>
