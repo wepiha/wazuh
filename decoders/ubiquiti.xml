@@ -237,7 +237,7 @@
 </decoder>
 <decoder name="unifi-network-accessed">
   <parent>unifi-network-accessed-parent</parent>
-  <regex type="pcre2">UNIFIaccessMethod=(\S+).*? UNIFIadmin=(\S+).*? src=(\S+)</regex>
+  <regex type="pcre2">UNIFIaccessMethod=(\S+).*? UNIFIadmin=(.+).*? src=(\S+)</regex>
   <order>access_method, dstuser, srcip</order>
 </decoder>
 
@@ -248,7 +248,7 @@
 </decoder>
 <decoder name="unifi-config-modified">
   <parent>unifi-config-modified-parent</parent>
-  <regex type="pcre2">UNIFIsettingsChanges=([^: ]+).*? UNIFIadmin=(\S+) src=(\S+)</regex>
+  <regex type="pcre2">UNIFIsettingsChanges=([^: ]+).*? UNIFIadmin=(.+) src=(\S+)</regex>
   <order>setting, dstuser, srcip</order>
 </decoder>
 
